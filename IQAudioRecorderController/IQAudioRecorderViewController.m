@@ -286,6 +286,12 @@
 
             recordSettings[AVFormatIDKey] = @(kAudioFormatAppleLossless);
         }
+        else if (self.audioFormat == IQAudioFormat_flac)
+        {
+          _recordingFilePath = [NSTemporaryDirectory() stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.flac",globallyUniqueString]];
+          
+          recordSettings[AVFormatIDKey] = @(kAudioFormatFLAC);
+        }
         
         if (self.sampleRate > 0.0f)
         {
